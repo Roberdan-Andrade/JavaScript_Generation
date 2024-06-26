@@ -21,7 +21,7 @@ nota4 = leia.questionFloat("Digite a QUARTA nota: ", {limitMessage: '\nErro, por
 media = (nota1 + nota2 + nota3 + nota4) / 4;
 
 //Exibindo média simples e arredondada;
-console.log("\nA média simples das notas inseridas é: " + media);
+console.log("\nA média simples das notas inseridas é: " + media.toFixed(1));
 
 media = Math.round(media);
 console.log("Arredondando a média fica: " + media);
