@@ -1,12 +1,27 @@
 const leia = require("readline-sync");
 
 let numeroDigitado;
-let numeros = [2,5,1,3,4,9,7,8,10,6];
+let numero;
+let numeros = [];
 let achou = false;
 
 //Apresentação
 console.log("\n ---  Leitor de Vetor  ---");
 console.log("\nBom dia! Vamos começar? \n");
+
+// Ler o tamanho do vetor
+const tamanhoVetor = leia.questionInt("Quantos numeros tera o vetor? ", { limitMessage: '\nErro, por favor digite apenas numeros' });
+
+// Ler cada número do vetor e confirma se ja não foi posto antes
+for (i = 0; i < tamanhoVetor; i++) {
+    do {
+        numero = leia.questionInt(`Digite o numero na posicao ${i}: `, { limitMessage: '\nErro, por favor digite apenas numeros' });
+        if (numeros.includes(numero)) {
+            console.log(`Numero ${numero} já foi inserido no vetor. Por favor, insira um numero diferente.`);
+        }
+    } while (numeros.includes(numero)); // Repete até que o número seja único
+    numeros.push(numero);
+}
 
 //Lendo numero digitado
 numeroDigitado = leia.questionInt("Qual numero estamos procurando? ", { limitMessage: '\nErro, por favor digite apenas numeros' });
